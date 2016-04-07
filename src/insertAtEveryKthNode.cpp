@@ -21,10 +21,10 @@ struct node {
 
 struct node * insertAtEveryKthNode(struct node *head, int K) {
 	
-/*	int l = K;
+	int l = K;
 	struct node* currentnodeptr = NULL;
-	struct node* nodeptr = NULL;
-	struct node* temp;
+	struct node* previousnodeptr = NULL;
+	struct node* temp=NULL;
 	
 
 	
@@ -44,20 +44,34 @@ struct node * insertAtEveryKthNode(struct node *head, int K) {
 			{
 				temp = (struct node*)malloc(sizeof(struct node));
 				temp->num = K;
-				temp->next = currentnodeptr->next;
-				currentnodeptr->next = temp;
-				temp -> next = nodeptr;
+				temp->next = NULL;
+				previousnodeptr->next = temp;
+				temp->next = currentnodeptr;
 				l = K;
+
+				previousnodeptr = temp;
+
+
 			}
 			else
 			{
+				printf(" %d", currentnodeptr->num);
+				previousnodeptr = currentnodeptr;
 				currentnodeptr = currentnodeptr->next;
 				l--;
 			}
 		}
+		if (l == 0)
+		{
+			temp = (struct node*)malloc(sizeof(struct node));
+			temp->num = K;
+			temp->next = NULL;
+
+			previousnodeptr->next = temp;
+		}
 
 		return head;
 	}
-	*/
-	return NULL;
+	
+	
 }
